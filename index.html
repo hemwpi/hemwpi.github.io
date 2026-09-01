@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Human-Centered Engineering for Mobility Lab — WPI</title>
+<style>
+  :root{
+    --header:#F2F2F3;
+    --heading:#16181A;
+    --heading-deep:#0C0E10;
+    --ink:#2E3134;
+    --muted:#65696D;
+    --line:#DFDFE1;
+    --surface:#F7F7F8;
+    --paper:#ffffff;
+    --crimson:#AC2B37;
+    --teal:#47786F;
+    --teal-soft:#EDF3F1;
+    --wrap:1120px;
+    --gutter:40px;
+    --sq:240px;
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--paper);}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter);}
+  @media (min-width:1700px){:root{--wrap:1240px;}}
+  strong{color:var(--heading);font-weight:600;}
+
+  /* Shared section language */
+  .eyebrow{
+    margin:0 0 10px;
+    font-size:11.5px;
+    line-height:1.2;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--teal);
+  }
+  .section-title{
+    margin:0;
+    color:var(--heading);
+    font-size:28px;
+    line-height:1.2;
+    letter-spacing:-.02em;
+    font-weight:650;
+  }
+  .section-intro{
+    max-width:760px;
+    margin:14px 0 0;
+    font-size:16px;
+    line-height:1.65;
+    color:var(--ink);
+  }
+
+  /* HERO: institutional identity */
+  .hero{background:var(--header);padding:28px 0 48px;position:relative;}
+  .hero::after{
+    content:'';position:absolute;left:0;right:0;bottom:0;height:5px;
+    /* the crimson/teal break lands on the content edge at every width */
+    background:linear-gradient(to right,
+      var(--crimson) 0,
+      var(--crimson) max(var(--gutter), calc((100% - var(--wrap))/2 + var(--gutter))),
+      var(--teal) 0);
+  }
+  .topnav{display:flex;justify-content:flex-end;gap:24px;margin-bottom:40px;}
+  .topnav a{color:var(--muted);font-size:13px;text-decoration:none;letter-spacing:.02em;padding-bottom:3px;border-bottom:2px solid transparent;}
+  .topnav a:hover{color:var(--heading);}
+  .topnav a.here{color:var(--crimson);border-bottom-color:var(--crimson);}
+  .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson);font-weight:700;margin-bottom:30px;line-height:1.9;}
+  .kicker .sep{margin:0 .75em;opacity:.55;}
+  .hero h1{font-size:42px;line-height:1.15;margin:0;color:var(--heading);font-weight:650;letter-spacing:-.02em;}
+
+  /* MISSION: open editorial statement between the hero and research panel */
+  .mission{padding:56px 0 64px;background:var(--paper);}
+  .mission-inner{
+    display:grid;grid-template-columns:minmax(280px,.85fr) minmax(0,1.15fr);
+    gap:48px;align-items:start;
+    text-align:left;
+  }
+  .mission-heading{padding-left:16px;border-left:2px solid var(--teal);}
+  .mission .eyebrow{color:var(--teal);}
+  .mission .tagline{
+    font-size:27px;line-height:1.3;font-weight:650;color:var(--heading);
+    margin:0;letter-spacing:-.025em;max-width:430px;
+  }
+  .mission .statement{
+    font-size:16.5px;line-height:1.75;margin:23px 0 0;color:var(--ink);max-width:620px;
+  }
+
+  /* RESEARCH DIRECTIONS: concrete program, structured and image-bearing */
+  .thrusts{padding:0 0 72px;}
+  .research-header{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:60px;align-items:end;margin-bottom:18px;}
+  .research-header .section-intro{margin:0;max-width:none;padding-bottom:3px;}
+  .thrusts .panel{
+    padding:0 44px;
+    border-radius:6px;
+    background:linear-gradient(180deg,rgba(71,120,111,.08),rgba(71,120,111,.025));
+    border:1px solid rgba(71,120,111,.22);
+  }
+  .thrust{
+    display:grid;grid-template-columns:84px minmax(0,1fr) var(--sq);
+    gap:36px;padding:42px 0;border-top:1px solid rgba(71,120,111,.2);align-items:start;
+  }
+  .thrust:first-child{border-top:none;}
+  .thrust-index{
+    font-size:42px;line-height:1;color:#47786f85;
+    letter-spacing:-.04em;font-weight:500;padding-top:1px;
+  }
+  .thrust-body{
+    display:flex;flex-direction:column;justify-content:space-between;
+    min-height:var(--sq);
+  }
+  .thrust h3{margin:0 0 12px;font-size:21px;line-height:1.25;color:var(--heading);letter-spacing:-.01em;}
+  .thrust p{margin:0;font-size:15.8px;line-height:1.68;color:var(--ink);}
+  .approaches{margin-top:16px!important;font-size:13.5px!important;line-height:1.5!important;color:var(--muted)!important;font-style:normal!important;}
+  .approaches strong{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--teal);margin-right:6px;}
+  .thrust .photo{
+    aspect-ratio:1/1;border-radius:7px;overflow:hidden;margin-top:5px;
+    border:1px solid rgba(71,120,111,.18);background:var(--teal-soft);
+  }
+  .thrust .photo img{width:100%;height:100%;object-fit:cover;display:block;object-position:center;}
+
+  /* FRAMEWORK: a distinct conceptual lens, full-width band */
+  .framework{padding:76px 0 84px;background:var(--surface);border-top:1px solid var(--line);}
+  .framework-shell{
+    display:grid;grid-template-columns:260px minmax(0,1fr);gap:64px;
+    align-items:start;
+  }
+  .framework-label{
+    position:sticky;top:28px;
+    padding-left:16px;border-left:2px solid var(--teal);
+  }
+  .framework-label .eyebrow{color:var(--teal);}
+  .framework-label .section-title{font-size:25px;}
+  .framework-copy p{font-size:16px;line-height:1.65;color:var(--ink);margin:0 0 16px;}
+  .framework-copy p:last-child{margin-bottom:0;}
+  .framework-figure{margin:52px 0 0;padding:0;background:transparent;border:0;}
+  .framework-figure img{width:100%;height:auto;display:block;border-radius:4px;margin:0;}
+  .framework-figure:not(:has(img)) .stage-row,
+  .framework-figure:has(img[hidden]) .stage-row { margin-top: 0; }
+
+   .stage-row{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 40px;margin:0;
+    counter-reset:stage;
+  }
+  .stage-row div{
+    font-size:13.5px;line-height:1.6;color:var(--muted);
+    padding-top:12px;border-top:1px solid var(--line);
+    counter-increment:stage;position:relative;
+  }
+  /* stage number sits on the rule, knocked out of the line */
+  .stage-row div::before{
+    content:counter(stage,decimal-leading-zero);
+    position:absolute;top:0;left:0;transform:translateY(-50%);
+    font-size:13px;line-height:1;font-weight:600;letter-spacing:.04em;
+    color:var(--teal);
+    background:var(--surface);padding:0 8px 0 0;
+  }
+  .stage-row h5{margin:10px 0 6px;font-size:12px;color:var(--heading);text-transform:uppercase;letter-spacing:.09em;}
+  
+  .stage-row p{margin:0;}
+  .framework-note{width:100%;max-width:none;margin:56px 0 0;}
+  .framework-note .eyebrow{margin-bottom:8px;color:var(--muted);}
+  .framework-note .note-copy{margin:0;font-size:14.5px;line-height:1.65;color:var(--ink);}
+
+  @media (max-width:1120px){
+    .stage-row{gap:26px 28px;}
+  }
+  @media (max-width:980px){
+    .thrust{grid-template-columns:72px minmax(0,1fr) 200px;gap:28px;}
+  }
+  @media (max-width:860px){
+    .mission-inner{grid-template-columns:1fr;gap:26px;}
+    .mission-heading{padding-left:14px;}
+    .mission .tagline,.mission .statement{max-width:680px;}
+    .mission .statement{margin-top:0;}
+    .research-header{grid-template-columns:1fr;gap:14px;}
+    .research-header .section-intro{padding-bottom:0;}
+    .thrust{grid-template-columns:60px minmax(0,1fr);gap:24px;}
+    .thrust .photo{grid-column:2;max-width:320px;margin-top:22px;}
+    .thrust-body{min-height:0;}
+    .framework-shell{grid-template-columns:1fr;gap:26px;}
+    .framework-label{position:static;}
+    .framework-figure{margin-top:32px;padding:0;}
+  }
+  @media (max-width:760px){
+    :root{--gutter:24px;}
+    .hero{padding:22px 0 40px;}
+    .hero h1{font-size:32px;}
+    .topnav{justify-content:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:28px;}
+    .mission{padding:42px 0 48px;}
+    .mission .tagline{font-size:25px;}
+    .mission .statement{font-size:16px;}
+    .thrusts{padding-bottom:64px;}
+    .thrusts .panel{padding:0 24px;}
+    .thrust{grid-template-columns:1fr;gap:12px;padding:34px 0;}
+    .thrust-index{font-size:30px;}
+    .thrust .photo{grid-column:1;max-width:300px;margin-top:18px;}
+    .framework{padding:52px 0 58px;}
+    .stage-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 22px;}
+  }
+  @media (max-width:520px){
+    .stage-row{grid-template-columns:minmax(0,1fr);gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="topnav">
+      <a href="/" class="here">Home</a>
+      <a href="/working-together/">Working Together</a>
+      <a href="/publications/">Publications &amp; Presentations</a>
+      <a href="/about/">About the PI</a>
+    </div>
+    <div class="kicker">Worcester Polytechnic Institute<span class="sep">·</span><br>Biomedical Engineering &amp; Robotics Engineering</div>
+    <h1>Human-Centered Engineering for Mobility Lab</h1>
+  </div>
+</section>
+
+<section class="mission">
+  <div class="wrap">
+    <div class="mission-inner">
+      <div class="mission-heading">
+        <p class="eyebrow">Our mission</p>
+        <p class="tagline">Understanding how people move to shape assistive technology around real mobility needs.</p>
+      </div>
+      <p class="statement">We combine experimental and computational approaches in biomechanics and motor control to understand how wearable robots affect movement. We strive to develop adaptive systems that respond to the values and lived experiences of the communities we work with.</p>
+    </div>
+  </div>
+</section>
+
+<section class="thrusts">
+  <div class="wrap">
+    <div class="research-header">
+      <div>
+        <p class="eyebrow">What we study</p>
+        <h2 class="section-title">Research Directions</h2>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="thrust">
+        <div class="thrust-index">01</div>
+        <div class="thrust-body">
+          <h3>Motor Control in Context</h3>
+          <p>Movement in daily life requires people to coordinate their bodies with changing goals and surroundings. We study how the nervous system balances competing demands—including speed, effort, and stability—and how these tradeoffs change with age, environment, and neuromotor disease. Our work uses computational models of movement to develop and test explanations for how motor control operates outside of tightly constrained laboratory tasks.</p>
+          <p class="approaches"><strong>Keywords</strong> wearable sensing · musculoskeletal simulation · inverse optimal control · machine learning</p>
+        </div>
+        <div class="photo"><img src="/media/thrusts_control.jpg" alt="Musculoskeletal simulation of a walking figure alongside a plot of the tradeoffs between speed, balance, and accuracy that shape movement."></div>
+      </div>
+
+      <div class="thrust">
+        <div class="thrust-index">02</div>
+        <div class="thrust-body">
+          <h3>Human-Centered Device Optimization</h3>
+          <p>Assistive devices alter the mechanics of movement, shaping both physical performance and perceptual responses such as effort, comfort, and agency. These responses evolve as users adjust their movement strategies through repeated interaction with the device and as their capabilities change. We use human-in-the-loop optimization to personalize device behavior over time and study what determines whether assistance is adopted rather than abandoned.</p>
+          <p class="approaches"><strong>Keywords</strong> exoskeleton hardware and control · human-in-the-loop optimization · mixed-methods studies</p>
+        </div>
+        <div class="photo"><img src="/media/thrusts_hilo.jpg" alt="Person walking in a park wearing a hip exoskeleton."></div>
+      </div>
+
+      <div class="thrust">
+        <div class="thrust-index">03</div>
+        <div class="thrust-body">
+          <h3>Augmented Feedback for Motor Learning</h3>
+          <p>Motor skill learning depends on interpreting cues from the body and environment, which can be supplemented by sensorimotor feedback such as haptics, visuals, or verbal instruction. We design real-time feedback to support motor learning, asking which signals meaningfully aid learning under which conditions, and whether skills learned under augmented feedback transfer to unsupervised, real-world performance.</p>
+          <p class="approaches"><strong>Keywords</strong>real-time biofeedback · haptics · sensorimotor processing · motor learning and retention</p>
+        </div>
+        <div class="photo"><img src="/media/thrusts_coach.jpg" alt="Person walking on a treadmill with ankle exoskeletons while a monitor provides real-time visual biofeedback about their movement."></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="framework">
+  <div class="wrap">
+    <div class="framework-shell">
+      <div class="framework-label">
+        <p class="eyebrow">How we work</p>
+        <h2 class="section-title">A Human-Centered Engineering Framework</h2>
+      </div>
+
+      <div class="framework-copy">
+        <p>Supporting mobility with technology requires more than building a device. It requires understanding what matters to people, translating those priorities into meaningful goals, connecting them to how bodies and environments work, and evaluating whether the resulting systems help in everyday life.</p>
+        <p>Our Human-Centered Engineering Framework maps these interconnected activities, holding <strong>human experience as central</strong> throughout the research process. Although shown as stages, the process is iterative, with insights from each stage shaping the others.</p>
+      </div>
+    </div>
+
+    <figure class="framework-figure">
+      <figcaption class="stage-row">
+        <div><h5>Listen</h5><p>Understanding how a person experiences mobility in the context of their values, identity, needs, and goals.</p></div>
+        <div><h5>Encode</h5><p>Representing insights as qualitative and quantitative data that can be systematically analyzed and used to develop testable models.</p></div>
+        <div><h5>Integrate</h5><p>Connecting models of biomechanical, neural, and psychosocial processes to understand how they jointly shape human movement and behavior.</p></div>
+        <div><h5>Design</h5><p>Creating physical systems and interfaces whose form and function are informed by integrated models of movement and behavior.</p></div>
+        <div><h5>Operationalize</h5><p>Developing personalized control strategies that adapt device behavior to each person as they move.</p></div>
+        <div><h5>Validate</h5><p>Evaluating effectiveness beyond the laboratory, in the context of people's everyday lives.</p></div>
+      </figcaption>
+    </figure>
+
+    <div class="framework-note">
+      <p class="eyebrow">Current focus</p>
+      <p class="note-copy">Each of these stages represents an important area of discovery, design, and collaboration. Our published and ongoing work focuses primarily on Encode and Operationalize: inferring movement priorities from behavior and building devices and control strategies that respond to them. Fully realizing this vision will require expertise and collaboration across the entire framework, guided by the communities we work with.</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

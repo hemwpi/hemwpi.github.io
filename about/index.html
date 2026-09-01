@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About — HEM Lab</title>
+<style>
+  :root{
+    --header:#F2F2F3;
+    --heading:#16181A;
+    --heading-deep:#0C0E10;
+    --ink:#2E3134;
+    --muted:#5E6165;
+    --line:#DFDFE1;
+    --surface:#F7F7F8;
+    --paper:#ffffff;
+    --crimson:#AC2B37;
+    --teal:#47786F;
+    --wrap:1080px;
+    --gutter:40px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--paper);}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter);}
+  @media (min-width:1700px){:root{--wrap:1240px;}}
+  .placeholder{
+    background:repeating-linear-gradient(135deg,#E2E3E4 0 18px,#EEEFF0 18px 36px);
+    display:flex;align-items:center;justify-content:center;color:#8A8D90;
+    font-size:11px;text-align:center;line-height:1.4;padding:10px;
+  }
+  strong{color:var(--heading);font-weight:600;}
+  a{color:inherit;}
+
+  /* HERO: institutional identity */
+  .hero{background:var(--header);padding:26px 0 54px;position:relative;}
+  .hero::after{
+    content:'';position:absolute;left:0;right:0;bottom:0;height:5px;
+    /* the crimson/teal break lands on the content edge at every width */
+    background:linear-gradient(to right,
+      var(--crimson) 0,
+      var(--crimson) max(var(--gutter), calc((100% - var(--wrap))/2 + var(--gutter))),
+      var(--teal) 0);
+  }
+  .topnav{display:flex;justify-content:flex-end;gap:24px;margin-bottom:46px;}
+  .topnav a{color:var(--muted);font-size:13px;text-decoration:none;letter-spacing:.02em;padding-bottom:3px;border-bottom:2px solid transparent;}
+  .topnav a:hover{color:var(--heading);}
+  .topnav a.here{color:var(--crimson);border-bottom-color:var(--crimson);}
+  .hero h1{font-size:42px;line-height:1.15;margin:0;color:var(--heading);font-weight:650;letter-spacing:-.02em;}
+  @media (max-width:760px){
+    .hero{padding:22px 0 40px;}
+    .hero h1{font-size:32px;}
+    .topnav{justify-content:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:36px;}
+  }
+
+  /* HEADER */
+  .header-grid{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:center;}
+  .headshot{aspect-ratio:1/1;border-radius:6px;overflow:hidden;background:var(--surface);}
+  .headshot img{width:100%;height:100%;object-fit:cover;display:block;}
+  .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson);font-weight:700;margin-bottom:16px;}
+  .hero .header-grid h1{margin:0 0 12px;}
+  .info-line{font-size:14px;color:var(--muted);margin:0 0 3px;}
+  .info-line strong{color:var(--ink);font-weight:400;}
+  .info-line a{color:var(--teal);text-decoration:underline;}
+  .info-line.role{margin-top:8px;}
+  .info-line.cv{margin-top:18px;font-size:15px;}
+  .info-line.cv a{color:var(--teal);font-style:italic}
+  .info-line.cv a:hover{color:var(--heading);}
+  .info-line.cv .when{color:var(--muted);text-decoration:none;}
+  @media (max-width:600px){.header-grid{grid-template-columns:1fr;}}
+
+  /* INTRO */
+  .intro{padding:40px 0;border-bottom:1px solid var(--line);}
+  .intro p{font-size:16px;line-height:1.7;margin:0;color:var(--ink);}
+
+  /* TIMELINE */
+  .timeline{padding:48px 0 64px;}
+  .section-title{font-size:24px;color:var(--heading);margin:0 0 32px;}
+
+  .entries{position:relative;}
+  .entries::before{
+    content:'';position:absolute;top:8px;bottom:8px;left:148px;width:2px;background:var(--line);
+  }
+  .entry{
+    display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:24px;padding:34px 0;position:relative;
+    align-items:center; /* the text block centres against its image */
+  }
+  .entry-main{
+    display:grid;grid-template-columns:110px 28px minmax(0,1fr);gap:24px;align-items:start;
+  }
+  .entry:first-of-type{padding-top:0;}
+
+  .entry-when{font-size:15px;color:var(--muted);padding-top:1px;line-height:1.4;}
+  .entry-when .years{font-weight:600;color:var(--heading);display:block;margin-bottom:3px;font-size:15.5px;}
+
+  .marker{position:relative;}
+  .marker::after{
+    content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);
+    width:11px;height:11px;border-radius:50%;background:var(--teal);
+    border:3px solid var(--paper);box-shadow:0 0 0 1px var(--line);
+  }
+
+  .entry h4{margin:0 0 3px;font-size:16.5px;color:var(--heading);}
+  .entry .meta{font-size:13px;color:var(--muted);margin:0 0 10px;}
+  .entry p.body{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .entry p.body a{color:var(--teal);text-decoration:underline;text-underline-offset:2px;}
+  .entry p.body a:hover{color:var(--heading);}
+
+  .entry .media{aspect-ratio:1/1;border-radius:4px;overflow:hidden;background:var(--surface);}
+  .entry .media img,.entry .media video{width:100%;height:100%;object-fit:cover;display:block;}
+  .entry .media.stack{aspect-ratio:auto;display:grid;gap:8px;background:none;overflow:visible;}
+  .entry .media.stack img{width:100%;height:auto;object-fit:fill;border-radius:4px;}
+  .entry .media.soon{
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--line);
+    background:
+      repeating-linear-gradient(45deg,
+        rgba(46,49,52,.045) 0 9px,
+        rgba(46,49,52,0) 9px 18px),
+      var(--surface);
+  }
+  .entry .media.soon span{
+    font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:#9A9DA1;white-space:nowrap;
+  }
+  .entry .caption{font-size:12.5px;line-height:1.4;color:var(--muted);margin:7px 0 0;}
+
+  @media (max-width:820px){
+    .entry{grid-template-columns:minmax(0,1fr);}
+    .entry-main{grid-template-columns:90px 20px minmax(0,1fr);}
+    .entry .media{max-width:260px;margin-top:14px;}
+    .entries::before{left:124px;}
+  }
+  @media (max-width:560px){
+    .entry{gap:10px;}
+    .entry-main{grid-template-columns:1fr;gap:10px;}
+    .marker,.entries::before{display:none;}
+  }
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/working-together/">Working Together</a>
+      <a href="/publications/">Publications &amp; Presentations</a>
+      <a href="/about/" class="here">About the PI</a>
+    </div>
+    <div class="header-grid">
+      <div class="headshot"><img src="/media/headshot_square.jpeg" alt="Ava Lakmazaheri"></div>
+      <div>
+        <div class="kicker">Human-Centered Engineering for Mobility Lab</div>
+        <h1>Ava Lakmazaheri</h1>
+        <p class="info-line role"><strong>Principal Investigator</strong></p>
+        <p class="info-line"><strong>PhD, Mechanical Engineering</strong>, Stanford University</p>
+        <p class="info-line"><strong>BS, Mechanical Engineering</strong>, Olin College of Engineering</p>
+        <p class="info-line cv"><a href="/CV_Lakmazaheri.pdf">Curriculum Vitae</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <p>
+      My work has been guided by a longstanding interest in helping people move through the world with greater ease 
+      and satisfaction. Mobility is a fundamentally multidisciplinary problem, and my path into this research
+      has crossed engineering, design, neuroscience, psychology, and philosophy. 
+      The timeline below traces how these experiences have shaped the questions I ask and the ways I approach them.
+      I share it not as a model to follow, but as one example of how students can build toward a goal across different
+      kinds of experience. There is no single route into this work; 
+      what matters is deepening your understanding of the problems you want to help solve.
+    </p>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="wrap">
+    <h2 class="section-title">Timeline</h2>
+
+    <div class="entries">
+
+      <div class="entry">
+        <div class="entry-main">
+          <div class="entry-when"><span class="years">2014–2016</span>High School</div>
+          <div class="marker"></div>
+          <div>
+          <h4>Introduction to Assistive Technology</h4>
+          <p class="meta">Independent Research, Thomas Jefferson High School for Science and Technology</p>
+          <p class="body">Inspired by BrainGate's work restoring movement for a person with tetraplegia, I
+            ran an independent project in <strong>brain-computer interfacing</strong>, mapping brainwaves from a commercial
+            EEG to natural-language commands for a custom humanoid robot and a miniature hybrid wheelchair.
+            This project was an early lesson in <strong>systems-level integration</strong> across hardware, software, and
+            the person operating them.</p>
+        </div>
+        </div>
+        <div>
+          <div class="media">
+            <video controls preload="metadata" playsinline poster="/media/TJHSST_thumb.png"
+              aria-label="Demonstration of a brain-computer interface controlling a humanoid robot">
+              <source src="/media/TJHSST.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-main">
+          <div class="entry-when"><span class="years">2016–2020</span>Undergraduate</div>
+          <div class="marker"></div>
+          <div>
+          <h4>Engineering, Neurotechnology, and Disability Studies</h4>
+          <p class="meta">Mechanical Engineering, Olin College of Engineering</p>
+          <p class="body">Olin's project-based curriculum taught me to design with, not for, 
+            providing the roots of the <strong>human-centered design</strong> principles I still build from.
+            I helped launch and spent four years in the Human Augmentation Laboratory researching
+            attention-responsive brain-computer interfaces and conducted research on 
+            how psychological self-concept changes after acquired disability.
+            In a year-long engineering capstone, I worked with powered wheelchair users to co-design new 
+            physical and graphical interfaces to enhance <strong>personal mobility</strong>.
+            I also cross-registered at Wellesley College to study <strong>ethics and justice</strong> 
+            with a humanities capstone project examining concepts of the body, assistive technology,
+            and interdependence through pieces from disabled artists.
+          </p> 
+        </div>
+        </div>
+        <div>
+          <div class="media stack">
+            <img src="/media/Olin_HAL.jpg" alt="Human Augmentation Laboratory research session at Olin College.">
+            <img src="/media/Olin_Toyota.jpeg" alt="Wheelchair interface co-design from the Toyota-sponsored capstone.">
+          </div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-main">
+          <div class="entry-when"><span class="years">2020–2025</span>Doctoral</div>
+          <div class="marker"></div>
+          <div>
+          <h4>Personalizing Exoskeleton-Assisted Gait for Older Adults</h4>
+          <p class="meta">Mechanical Engineering, Stanford University</p>
+          <p class="body">My doctoral research centered on co-adaptive <strong>human-exoskeleton interaction</strong>
+            to assist walking. I worked with older adults navigating <strong>age-related mobility decline</strong>: 
+            personalizing exoskeleton assistance to multiple performance objectives,
+            characterizing motor adaptation as people learn to walk with exoskeletons,
+            and building biofeedback systems to accelerate sensorimotor learning and ease of device use.
+            Across these projects, I was interested in how assistive devices can adapt to a person while
+            supporting the learning that person is doing in turn.
+            For a deeper look at this work, see my
+            <a href="https://youtu.be/RnNVZsX1bH4">PhD defense presentation</a>.</p>
+        </div>
+        </div>
+        <div>
+          <div class="media">
+            <video controls preload="metadata" playsinline poster="/media/PhD_research_poster.jpg"
+              aria-label="Older adult walking on a treadmill with ankle exoskeletons in the Stanford Biomechatronics Laboratory">
+              <source src="/media/PhD_research.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-main">
+          <div class="entry-when"><span class="years">2025–2026</span>Postdoctoral</div>
+          <div class="marker"></div>
+          <div>
+          <h4>Computational Modeling of Motor Control</h4>
+          <p class="meta">Bioengineering, Harvard University</p>
+          <p class="body">My postdoctoral work shifted toward <strong>computational modeling</strong>, combining
+            physics-based musculoskeletal simulation with data-driven modeling to study
+            <strong>multi-objective motor control</strong>: how the nervous system balances competing
+            priorities like speed, accuracy, and stability during walking.</p>
+        </div>
+        </div>
+        <div class="media"><img src="/media/comp_square.png" alt="."></div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-main">
+          <div class="entry-when"><span class="years">2027–</span>PI</div>
+          <div class="marker"></div>
+          <div>
+          <h4>Founding a New Lab</h4>
+          <p class="meta">Biomedical Engineering &amp; Robotics Engineering, Worcester Polytechnic Institute</p>
+          <p class="body">I'll be starting a new lab at WPI, bringing these threads together: modeling
+            motor control and designing adaptive tools to support people's mobility.</p>
+        </div>
+        </div>
+        <div class="placeholder media soon"><span>Coming soon</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

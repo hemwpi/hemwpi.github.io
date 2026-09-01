@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Working Together — HEM Lab</title>
+<style>
+  :root{
+    --header:#F2F2F3;
+    --heading:#16181A;
+    --heading-deep:#0C0E10;
+    --ink:#2E3134;
+    --muted:#5E6165;
+    --line:#DFDFE1;
+    --surface:#F7F7F8;
+    --paper:#ffffff;
+    --crimson:#AC2B37;
+    --teal:#47786F;
+    --teal-deep:#38625A;
+    --teal-soft:#EDF3F1;
+    --wrap:1080px;
+    --gutter:40px;
+    --teal-wash:#E1EBE8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--paper);}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter);}
+  @media (min-width:1700px){:root{--wrap:1240px;}}
+  strong{color:var(--heading);font-weight:600;}
+  a{color:var(--teal);}
+
+  /* HERO: institutional identity */
+  .hero{background:var(--header);padding:26px 0 54px;position:relative;}
+  .hero::after{
+    content:'';position:absolute;left:0;right:0;bottom:0;height:5px;
+    /* the crimson/teal break lands on the content edge at every width */
+    background:linear-gradient(to right,
+      var(--crimson) 0,
+      var(--crimson) max(var(--gutter), calc((100% - var(--wrap))/2 + var(--gutter))),
+      var(--teal) 0);
+  }
+  .topnav{display:flex;justify-content:flex-end;gap:24px;margin-bottom:46px;}
+  .topnav a{color:var(--muted);font-size:13px;text-decoration:none;letter-spacing:.02em;padding-bottom:3px;border-bottom:2px solid transparent;}
+  .topnav a:hover{color:var(--heading);}
+  .topnav a.here{color:var(--crimson);border-bottom-color:var(--crimson);}
+  .hero h1{font-size:42px;line-height:1.15;margin:0;color:var(--heading);font-weight:650;letter-spacing:-.02em;}
+  @media (max-width:760px){
+    .hero{padding:22px 0 40px;}
+    .hero h1{font-size:32px;}
+    .topnav{justify-content:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:36px;}
+  }
+
+  .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson);font-weight:700;margin-bottom:16px;}
+
+  section{padding:44px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  /* Shared section language (matches index.html) */
+  .section-title{
+    margin:0 0 14px;
+    color:var(--heading);
+    font-size:28px;
+    line-height:1.2;
+    letter-spacing:-.02em;
+    font-weight:650;
+  }
+  .section-lede{font-size:16px;line-height:1.7;margin:0 0 24px;color:var(--ink);}
+  section p{font-size:16px;line-height:1.7;margin:0 0 16px;color:var(--ink);}
+  section p:last-child{margin-bottom:0;}
+
+  .sub{font-size:18px;color:var(--heading);margin:0 0 6px;}
+
+  .cat{font-size:16.5px;color:var(--heading);font-weight:600;margin:24px 0 3px;}
+  .cat + p{margin-bottom:0;}
+
+  section:last-of-type{padding-bottom:64px;}
+  a.button{
+    display:inline-block;margin-top:8px;padding:11px 21px;
+    font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;
+    color:var(--teal-deep);background:var(--teal-soft);
+    border:1px solid rgba(71,120,111,.28);
+    border-radius:3px;text-decoration:none;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  a.button:hover{background:var(--teal-wash);border-color:rgba(71,120,111,.48);}
+  a.button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/working-together/" class="here">Working Together</a>
+      <a href="/publications/">Publications &amp; Presentations</a>
+      <a href="/about/">About the PI</a>
+    </div>
+    <div class="kicker">Human-Centered Engineering for Mobility Lab</div>
+    <h1>Working Together</h1>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Prospective Students</h2>
+    <p>
+      I welcome inquiries from prospective students interested in research in biomechanics,
+      motor learning, assistive device design and control.
+      I am specifically recruiting <strong>PhD students to begin in Fall 2027</strong> and <strong>Master's students year-round</strong>.
+    </p>
+
+    <p>
+      Students in the lab will contribute to a growing research program while developing as independent researchers
+      and preparing for their future careers. Mentorship will include developing research questions, building technical, 
+      writing, and presentation skills, and learning how to carry a project forward with increasing independence.
+    </p>
+
+    <p>Relevant backgrounds may include biomedical, mechanical, or robotics engineering;
+      rehabilitation science; kinesiology; and computational neuroscience.
+      Prior experience with hardware and control systems is especially relevant to device-focused work,
+      while simulation and machine learning are assets for modeling-focused projects.
+      Students should expect to develop skills in quantitative analysis, experimental research with human participants,
+      and collaboration across disciplines. I look for students who are prepared to acquire the skills and methods their
+      research requires, including those beyond their prior experience.
+    </p>
+
+    <p>I would also be glad to hear from undergraduate students interested in a sustained research experience or a capstone project.
+      If you are interested, please send a note describing your background and interests.</p>
+
+    <a class="button" href="mailto:alakmazaheri@wpi.edu?subject=%5BHEM-STUDENT%5D">Email about joining the lab</a>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+  <h2 class="section-title">Collaborators</h2>
+
+  <p>
+    Understanding how people move and developing technologies that respond to people’s mobility needs
+    is a collaborative endeavor. I welcome collaborators who contribute to different parts of
+    this work, including:
+  </p>
+
+  <p>
+    <strong>Clinical expertise:</strong>
+    Physical therapists, orthotists and prosthetists, physiatrists, and other rehabilitation clinicians
+    working with aging, gait disorders, and neurological conditions.
+  </p>
+
+  <p>
+    <strong>Disability expertise:</strong>
+    Disabled people, assistive technology users, disability justice scholars, and advocates whose
+    knowledge can shape the questions we ask and the technologies we pursue.
+  </p>
+
+  <p>
+    <strong>Design expertise:</strong>
+    Product and interaction designers, and human factors researchers focused on how devices are
+    understood, used, and incorporated into daily life.
+  </p>
+
+  <p>
+    <strong>Engineering and computational expertise:</strong>
+    Researchers in biomechanics, robotics, control systems, simulation,
+    machine learning, and related areas interested in understanding
+    human movement or developing adaptive assistive technologies.
+  </p>
+
+  <p>
+    If you work on related questions or see a connection with your own work, I would be glad to hear
+    from you.
+  </p>
+
+  <a class="button" href="mailto:alakmazaheri@wpi.edu?subject=%5BHEM-COLLAB%5D">Email about collaborating</a>
+  </div>
+</section>
+
+
+</body>
+</html>
