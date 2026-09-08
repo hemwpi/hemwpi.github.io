@@ -101,7 +101,7 @@
   }
   .thrust{
     display:grid;grid-template-columns:84px minmax(0,1fr) var(--sq);
-    gap:36px;padding:42px 0;border-top:1px solid rgba(71,120,111,.2);align-items:start;
+    gap:52px;padding:42px 0 54px;border-top:1px solid rgba(71,120,111,.2);align-items:start;
   }
   .thrust:first-child{border-top:none;}
   .thrust-index{
@@ -121,6 +121,11 @@
     border:1px solid rgba(71,120,111,.18);background:var(--teal-soft);
   }
   .thrust .photo img{width:100%;height:100%;object-fit:cover;display:block;object-position:center;}
+  .thrust-figure{margin:0;}
+  .thrust figcaption{
+    margin-top:9px;font-size:10px;line-height:1.45;color:var(--muted);
+    font-style:italic;letter-spacing:.005em;
+  }
 
   /* FRAMEWORK: a distinct conceptual lens, full-width band */
   .framework{padding:76px 0 84px;background:var(--surface);border-top:1px solid var(--line);}
@@ -169,7 +174,7 @@
     .stage-row{gap:26px 28px;}
   }
   @media (max-width:980px){
-    .thrust{grid-template-columns:72px minmax(0,1fr) 200px;gap:28px;}
+    .thrust{grid-template-columns:72px minmax(0,1fr) 200px;gap:38px;}
   }
   @media (max-width:860px){
     .mission-inner{grid-template-columns:1fr;gap:26px;}
@@ -179,7 +184,7 @@
     .research-header{grid-template-columns:1fr;gap:14px;}
     .research-header .section-intro{padding-bottom:0;}
     .thrust{grid-template-columns:60px minmax(0,1fr);gap:24px;}
-    .thrust .photo{grid-column:2;max-width:320px;margin-top:22px;}
+    .thrust-figure{grid-column:2;max-width:320px;margin-top:17px;}
     .thrust-body{min-height:0;}
     .framework-shell{grid-template-columns:1fr;gap:26px;}
     .framework-label{position:static;}
@@ -197,7 +202,7 @@
     .thrusts .panel{padding:0 24px;}
     .thrust{grid-template-columns:1fr;gap:12px;padding:34px 0;}
     .thrust-index{font-size:30px;}
-    .thrust .photo{grid-column:1;max-width:300px;margin-top:18px;}
+    .thrust-figure{grid-column:1;max-width:300px;margin-top:13px;}
     .framework{padding:52px 0 58px;}
     .stage-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 22px;}
   }
@@ -251,7 +256,10 @@
           <p>Movement in daily life requires people to coordinate their bodies with changing goals and surroundings. We study how the nervous system balances competing demands—including speed, effort, and stability—and how these tradeoffs change with age, environment, and neuromotor disease. Our work uses computational models of movement to develop and test explanations for how motor control operates outside of tightly constrained laboratory tasks.</p>
           <p class="approaches"><strong>Keywords</strong> wearable sensing · musculoskeletal simulation · inverse optimal control · machine learning </p>
         </div>
-        <div class="photo"><img src="/media/thrusts_control.jpg" alt="Person walking on a city street wearing wearable motion and muscle sensors, beside a musculoskeletal model in the same posture and inset plots of movement dynamics and shifting control priorities."></div>
+        <figure class="thrust-figure">
+          <div class="photo"><img src="/media/thrusts_control.jpg" alt="Person walking on a city street wearing wearable motion and muscle sensors, beside a musculoskeletal model in the same posture and inset plots of movement dynamics and shifting control priorities."></div>
+          <figcaption>Wearable sensing during stair descent (2026). Schematic OpenSim and objective-ternary overlays.</figcaption>
+        </figure>
       </div>
 
       <div class="thrust">
@@ -261,7 +269,10 @@
           <p>Assistive devices alter the mechanics of movement, shaping both physical performance and perceptual responses such as effort, comfort, and agency. These responses evolve as users adjust their movement strategies through repeated interaction with the device and as their capabilities change. We use human-in-the-loop optimization to personalize device behavior over time and study what determines whether assistance is adopted rather than abandoned.</p>
           <p class="approaches"><strong>Keywords</strong> exoskeleton hardware and control · human-in-the-loop optimization · mixed-methods studies</p>
         </div>
-        <div class="photo"><img src="/media/thrusts_hilo.jpg" alt="Person walking outdoors in a hip exoskeleton, with arrows tracing a human-in-the-loop optimization cycle: assistance settings, measured responses, an optimization landscape, and updated torque profiles."></div>
+        <figure class="thrust-figure">
+          <div class="photo"><img src="/media/thrusts_hilo.jpg" alt="Person walking outdoors in a hip exoskeleton, with arrows tracing a human-in-the-loop optimization cycle: assistance settings, measured responses, an optimization landscape, and updated torque profiles."></div>
+          <figcaption>Community hip exoskeleton testing (2026). Schematic optimization from multimodal signals.</figcaption>
+        </figure>
       </div>
 
       <div class="thrust">
@@ -271,7 +282,10 @@
           <p>Motor skill learning depends on interpreting cues from the body and environment, which can be supplemented by sensorimotor feedback such as haptics, visuals, or verbal instruction. We design real-time feedback to support motor learning, asking which signals meaningfully aid learning under which conditions, and whether skills learned under augmented feedback transfer to unsupervised, real-world performance.</p>
           <p class="approaches"><strong>Keywords</strong> real-time biofeedback · haptics · sensorimotor processing · motor learning and retention</p>
         </div>
-        <div class="photo"><img src="/media/thrusts_coach.jpg" alt="Person walking on a treadmill with ankle exoskeletons while a monitor provides real-time visual biofeedback about their movement."></div>
+        <figure class="thrust-figure">
+          <div class="photo"><img src="/media/thrusts_coach.jpg" alt="Person walking on a treadmill with ankle exoskeletons while a monitor provides real-time visual biofeedback about their movement."></div>
+          <figcaption>Ankle exoskeleton training with visual biofeedback (2024). Schematic adaptation curves.</figcaption>
+        </figure>
       </div>
     </div>
   </div>
