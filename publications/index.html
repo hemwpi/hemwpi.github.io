@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Publications &amp; Presentations — Human-Centered Engineering for Mobility Lab</title>
+<title>Publications &amp; Presentations — HEM Lab</title>
+<meta name="description" content="Peer-reviewed articles and selected presentations from Ava Lakmazaheri and the Human-Centered Engineering for Mobility Lab.">
 <style>
   :root{
     --header:#F2F2F3;
@@ -14,6 +15,10 @@
     --line:#DFDFE1;
     --surface:#F7F7F8;
     --paper:#ffffff;
+    --footer:#2F534C;
+    --footer-name:#ffffff;
+    --footer-text:#BBCEC9;
+    --footer-dim:#A8BFB9;
     --crimson:#AC2B37;
     --teal:#47786F;
     --teal-soft:#EDF3F1;
@@ -79,7 +84,7 @@
   .pubs{padding:46px 0 68px;}
   .pubs.band{
     padding:72px 0 80px;
-    background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    background:var(--surface);border-top:1px solid var(--line);
   }
   .section-header{margin-bottom:28px;}
 
@@ -202,6 +207,20 @@
     .talk-year{padding-top:0;}
     .talk-title{font-size:16px;}
   }
+
+  /* FOOTER */
+  /* FOOTER */
+  .site-footer{background:var(--footer);color:var(--footer-text);font-size:13px;padding:24px 0 22px;}
+  .site-footer p{margin:0 0 3px;line-height:1.65;}
+  .site-footer a{color:var(--footer-name);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.32);padding-bottom:1px;}
+  .site-footer a:hover{border-bottom-color:var(--footer-name);}
+  .footer-toprow{display:flex;justify-content:space-between;align-items:baseline;gap:28px;margin:0 0 3px;}
+  .footer-toprow p{margin:0;}
+  .footer-name{color:var(--footer-name);font-weight:600;}
+  .footer-cr{color:var(--footer-dim);font-size:12px;white-space:nowrap;}
+  .footer-meta{font-size:12.5px;}
+  .footer-sep{opacity:.5;padding:0 7px;}
+  @media (max-width:760px){.site-footer{padding:22px 0 20px;}.footer-toprow{flex-direction:column;align-items:flex-start;gap:6px;}}
 </style>
 </head>
 <body>
@@ -224,7 +243,7 @@
     <div class="jump">
       <span class="jump-label">Jump to:</span>
       <a href="#articles">Peer-Reviewed Articles</a>
-      <a href="#presentations">Presentations</a>
+      <a href="#presentations">Selected Presentations</a>
     </div>
   </div>
 </section>
@@ -294,13 +313,11 @@
 
       <li class="entry">
         <div class="thumb"><img src="/publications/Adler_2019_Personality.png" alt="Two-by-two diagram of identity after acquired disability: active processing on the vertical axis, identity transformation on the horizontal, giving four groups — Resisters, Adapters, Drifters, and Wanderers.">
-          <span class="ph-year">2019</span>
-          <span class="ph-tag">J. Personality</span>
         </div>
         <div>
           <h3 class="entry-title">Identity integration in people with acquired disabilities: a qualitative study</h3>
-          <p class="authors">J. M. Adler, <strong>A. Lakmazaheri</strong>, E. O'Brien, A. Palmer, M. Reid, E. Tawes</p>
-          <p class="venue"><em>Journal of Personality</em>, 89(1), 84&ndash;112, 2019</p>
+          <p class="authors">J. M. Adler, <strong>A. Lakmazaheri</strong>, E. O’Brien, A. Palmer, M. Reid, E. Tawes</p>
+          <p class="venue"><em>Journal of Personality</em>, 89(1), 84&ndash;112, 2021</p>
           <p class="meta-row">
             <a class="paper" href="https://doi.org/10.1111/jopy.12533">doi</a>
             <a class="doc" href="/publications/Adler_2019_Personality.pdf">pdf</a>
@@ -310,8 +327,6 @@
 
       <li class="entry">
         <div class="thumb"><img src="/publications/Mason_2019_BBI.png" alt="Scatterplot of change in leukocyte telomere length against narrative identity integration, with a steeper positive slope in one group (open circles, dashed line) than the other (filled circles, solid line).">
-          <span class="ph-year">2019</span>
-          <span class="ph-tag">Brain Behav. Immun.</span>
         </div>
         <div>
           <h3 class="entry-title">Stress resilience: narrative identity may buffer the longitudinal effects of chronic caregiving stress on mental health and telomere shortening</h3>
@@ -475,10 +490,20 @@
 
 
     </ol>
-
-    <!-- <p class="section-note">A complete list of Prof. Lakmazaheri's presentations is available in her <a href="/CV_Lakmazaheri.pdf">CV</a>.</p> -->
   </div>
 </section>
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-toprow">
+      <p class="footer-name">Human-Centered Engineering for Mobility Lab</p>
+      <p class="footer-cr">&copy; 2026 Ava Lakmazaheri</p>
+    </div>
+    <p class="footer-meta">Worcester Polytechnic Institute<span class="footer-sep">&middot;</span>Worcester, MA</p>
+    <p class="footer-meta"><a href="mailto:alakmazaheri@wpi.edu">alakmazaheri@wpi.edu</a></p>
+  </div>
+</footer>
 
 </body>
 </html>

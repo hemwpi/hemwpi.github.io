@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>About — HEM Lab</title>
+<title>Ava Lakmazaheri — HEM Lab</title>
+<meta name="description" content="Ava Lakmazaheri is the principal investigator of the Human-Centered Engineering for Mobility Lab at Worcester Polytechnic Institute.">
 <style>
   :root{
     --header:#F2F2F3;
@@ -13,6 +14,10 @@
     --line:#DFDFE1;
     --surface:#F7F7F8;
     --paper:#ffffff;
+    --footer:#2F534C;
+    --footer-name:#ffffff;
+    --footer-text:#BBCEC9;
+    --footer-dim:#A8BFB9;
     --crimson:#AC2B37;
     --teal:#47786F;
     --wrap:1080px;
@@ -135,6 +140,20 @@
     .marker,.entries::before{display:none;}
   }
 
+
+  /* FOOTER */
+  /* FOOTER */
+  .site-footer{background:var(--footer);color:var(--footer-text);font-size:13px;padding:24px 0 22px;}
+  .site-footer p{margin:0 0 3px;line-height:1.65;}
+  .site-footer a{color:var(--footer-name);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.32);padding-bottom:1px;}
+  .site-footer a:hover{border-bottom-color:var(--footer-name);}
+  .footer-toprow{display:flex;justify-content:space-between;align-items:baseline;gap:28px;margin:0 0 3px;}
+  .footer-toprow p{margin:0;}
+  .footer-name{color:var(--footer-name);font-weight:600;}
+  .footer-cr{color:var(--footer-dim);font-size:12px;white-space:nowrap;}
+  .footer-meta{font-size:12.5px;}
+  .footer-sep{opacity:.5;padding:0 7px;}
+  @media (max-width:760px){.site-footer{padding:22px 0 20px;}.footer-toprow{flex-direction:column;align-items:flex-start;gap:6px;}}
 </style>
 </head>
 <body>
@@ -188,7 +207,7 @@
           <div>
           <h4>Introduction to Assistive Technology</h4>
           <p class="meta">Independent Research, Thomas Jefferson High School for Science and Technology</p>
-          <p class="body">Inspired by BrainGate's work restoring movement for a person with tetraplegia, I
+          <p class="body">Inspired by BrainGate’s work restoring movement for a person with tetraplegia, I
             ran an independent project in <strong>brain-computer interfacing</strong>, mapping brainwaves from a commercial
             EEG to natural-language commands for a custom humanoid robot and a miniature hybrid wheelchair.
             This project was an early lesson in <strong>systems-level integration</strong> across hardware, software, and
@@ -212,7 +231,7 @@
           <div>
           <h4>Engineering, Neurotechnology, and Disability Studies</h4>
           <p class="meta">Mechanical Engineering, Olin College of Engineering</p>
-          <p class="body">Olin's project-based curriculum taught me to design with, not for, 
+          <p class="body">Olin’s project-based curriculum taught me to design with, not for, 
             providing the roots of the <strong>human-centered design</strong> principles I still build from.
             I helped launch and spent four years in the Human Augmentation Laboratory researching
             attention-responsive brain-computer interfaces and conducted research on 
@@ -284,8 +303,8 @@
           <div>
           <h4>Founding a New Lab</h4>
           <p class="meta">Biomedical Engineering &amp; Robotics Engineering, Worcester Polytechnic Institute</p>
-          <p class="body">I'll be starting a new lab at WPI, bringing these threads together: modeling
-            motor control and designing adaptive tools to support people's mobility.</p>
+          <p class="body">I’ll be starting a new lab at WPI, bringing these threads together: modeling
+            motor control and designing adaptive tools to support people’s mobility.</p>
         </div>
         </div>
         <div class="placeholder media soon"><span>Coming soon</span></div>
@@ -294,6 +313,18 @@
     </div>
   </div>
 </section>
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-toprow">
+      <p class="footer-name">Human-Centered Engineering for Mobility Lab</p>
+      <p class="footer-cr">&copy; 2026 Ava Lakmazaheri</p>
+    </div>
+    <p class="footer-meta">Worcester Polytechnic Institute<span class="footer-sep">&middot;</span>Worcester, MA</p>
+    <p class="footer-meta"><a href="mailto:alakmazaheri@wpi.edu">alakmazaheri@wpi.edu</a></p>
+  </div>
+</footer>
 
 </body>
 </html>

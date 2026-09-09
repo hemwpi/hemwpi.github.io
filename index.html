@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Human-Centered Engineering for Mobility Lab — WPI</title>
+<meta name="description" content="The Human-Centered Engineering for Mobility Lab at WPI studies how people move and adapt, and designs assistive technologies that work with them.">
 <style>
   :root{
     --header:#F2F2F3;
@@ -14,6 +15,10 @@
     --line:#DFDFE1;
     --surface:#F7F7F8;
     --paper:#ffffff;
+    --footer:#2F534C;
+    --footer-name:#ffffff;
+    --footer-text:#BBCEC9;
+    --footer-dim:#A8BFB9;
     --crimson:#AC2B37;
     --teal:#47786F;
     --teal-soft:#EDF3F1;
@@ -73,10 +78,10 @@
   .hero h1{font-size:42px;line-height:1.15;margin:0;color:var(--heading);font-weight:650;letter-spacing:-.02em;}
 
   /* MISSION: open editorial statement between the hero and research panel */
-  .mission{padding:56px 0 64px;background:var(--paper);}
+  .mission{padding:52px 0 56px;background:var(--paper);}
   .mission-inner{
     display:grid;grid-template-columns:minmax(280px,.9fr) minmax(0,1.1fr);
-    gap:64px;align-items:start;
+    gap:56px;align-items:start;
     text-align:left;
   }
   .mission-heading{padding-left:16px;border-left:2px solid var(--teal);}
@@ -100,8 +105,8 @@
     border:1px solid rgba(71,120,111,.22);
   }
   .thrust{
-    display:grid;grid-template-columns:84px minmax(0,1fr) var(--sq);
-    gap:64px;padding:42px 0 54px;border-top:1px solid rgba(71,120,111,.2);align-items:start;
+    display:grid;grid-template-columns:48px minmax(0,1fr) var(--sq);
+    gap:40px;padding:38px 0 46px;border-top:1px solid rgba(71,120,111,.2);align-items:start;
   }
   .thrust:first-child{border-top:none;}
   .thrust-index{
@@ -114,16 +119,23 @@
   }
   .thrust h3{margin:0 0 12px;font-size:21px;line-height:1.25;color:var(--heading);letter-spacing:-.01em;}
   .thrust p{margin:0;font-size:15.8px;line-height:1.68;color:var(--ink);}
-  .approaches{margin-top:16px!important;font-size:13.5px!important;line-height:1.5!important;color:var(--muted)!important;font-style:normal!important;}
+  .approaches{margin-top:16px!important;font-size:12px!important;line-height:1.5!important;color:var(--muted)!important;font-style:normal!important;}
   .approaches strong{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--teal);margin-right:6px;}
   .thrust .photo{
-    aspect-ratio:1/1;border-radius:7px;overflow:hidden;margin-top:5px;
+    aspect-ratio:1/1;border-radius:7px;overflow:hidden;margin-top:3px;
     border:1px solid rgba(71,120,111,.18);background:var(--teal-soft);
   }
   .thrust .photo img{width:100%;height:100%;object-fit:cover;display:block;object-position:center;}
   .thrust-figure{margin:0;}
+  .thrust:last-of-type{padding-bottom:32px;}
+  .panel-note{
+    margin:14px 0 8px;
+    font-size:11px;line-height:1.55;color:var(--muted);
+    font-style:italic;
+    /* max-width:820px; */
+  }
   .thrust figcaption{
-    margin-top:9px;font-size:10px;line-height:1.45;color:var(--muted);
+    margin-top:8px;font-size:10px;line-height:1.45;color:var(--muted);
     font-style:italic;letter-spacing:.005em;
   }
 
@@ -174,7 +186,7 @@
     .stage-row{gap:26px 28px;}
   }
   @media (max-width:980px){
-    .thrust{grid-template-columns:72px minmax(0,1fr) 200px;gap:44px;}
+    .thrust{grid-template-columns:48px minmax(0,1fr) 200px;gap:40px;}
   }
   @media (max-width:860px){
     .mission-inner{grid-template-columns:1fr;gap:26px;}
@@ -183,7 +195,7 @@
     .mission .statement{margin-top:0;}
     .research-header{grid-template-columns:1fr;gap:14px;}
     .research-header .section-intro{padding-bottom:0;}
-    .thrust{grid-template-columns:60px minmax(0,1fr);gap:24px;}
+    .thrust{grid-template-columns:48px minmax(0,1fr);gap:24px;}
     .thrust-figure{grid-column:2;max-width:320px;margin-top:17px;}
     .thrust-body{min-height:0;}
     .framework-shell{grid-template-columns:1fr;gap:26px;}
@@ -209,6 +221,20 @@
   @media (max-width:520px){
     .stage-row{grid-template-columns:minmax(0,1fr);gap:16px;}
   }
+
+  /* FOOTER */
+  /* FOOTER */
+  .site-footer{background:var(--footer);color:var(--footer-text);font-size:13px;padding:24px 0 22px;}
+  .site-footer p{margin:0 0 3px;line-height:1.65;}
+  .site-footer a{color:var(--footer-name);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.32);padding-bottom:1px;}
+  .site-footer a:hover{border-bottom-color:var(--footer-name);}
+  .footer-toprow{display:flex;justify-content:space-between;align-items:baseline;gap:28px;margin:0 0 3px;}
+  .footer-toprow p{margin:0;}
+  .footer-name{color:var(--footer-name);font-weight:600;}
+  .footer-cr{color:var(--footer-dim);font-size:12px;white-space:nowrap;}
+  .footer-meta{font-size:12.5px;}
+  .footer-sep{opacity:.5;padding:0 7px;}
+  @media (max-width:760px){.site-footer{padding:22px 0 20px;}.footer-toprow{flex-direction:column;align-items:flex-start;gap:6px;}}
 </style>
 </head>
 <body>
@@ -221,7 +247,7 @@
       <a href="/publications/">Publications &amp; Presentations</a>
       <a href="/about/">About the PI</a>
     </div>
-    <div class="kicker">Worcester Polytechnic Institute<span class="sep">·</span><br>Biomedical Engineering &amp; Robotics Engineering</div>
+    <div class="kicker">Worcester Polytechnic Institute<br>Biomedical Engineering &amp; Robotics Engineering</div>
     <h1>Human-Centered Engineering for Mobility Lab</h1>
   </div>
 </section>
@@ -231,7 +257,7 @@
     <div class="mission-inner">
       <div class="mission-heading">
         <p class="eyebrow">Our mission</p>
-        <p class="tagline">Understanding how people move to shape assistive technology around real mobility needs.</p>
+        <p class="tagline">Understanding how people move to design assistive technologies that work with them.</p>
       </div>
       <p class="statement">We combine experimental and computational approaches in biomechanics and motor control to understand how wearable robots affect movement.
         We strive to develop adaptive systems that respond to the values and lived experiences of the communities we work with.</p>
@@ -250,33 +276,31 @@
 
     <div class="panel">
       <div class="thrust">
-        <div class="thrust-index">01</div>
+        <div class="thrust-index">1</div>
         <div class="thrust-body">
           <h3>Motor Control in Context</h3>
           <p>Movement in daily life requires people to coordinate their bodies with changing goals and surroundings. We study how the nervous system balances competing demands—including speed, effort, and stability—and how these tradeoffs change with age, environment, and neuromotor disease. Our work uses computational models of movement to develop and test explanations for how motor control operates outside of tightly constrained laboratory tasks.</p>
           <p class="approaches"><strong>Keywords</strong> wearable sensing · musculoskeletal simulation · inverse optimal control · machine learning </p>
         </div>
         <figure class="thrust-figure">
-          <div class="photo"><img src="/media/thrusts_control.jpg" alt="Person walking on a city street wearing wearable motion and muscle sensors, beside a musculoskeletal model in the same posture and inset plots of movement dynamics and shifting control priorities."></div>
-          <figcaption>Wearable sensing during stair descent (2026). Schematic OpenSim and objective-ternary overlays.</figcaption>
+          <div class="photo"><img src="/media/thrusts_control.jpg" alt="Person descending outdoor stairs with wearable sensors on legs and face, beside a musculoskeletal model ascending stairs and inset plots of movement dynamics and shifting control priorities."></div>
         </figure>
       </div>
 
       <div class="thrust">
-        <div class="thrust-index">02</div>
+        <div class="thrust-index">2</div>
         <div class="thrust-body">
           <h3>Human-Centered Device Optimization</h3>
-          <p>Assistive devices alter the mechanics of movement, shaping both physical performance and perceptual responses such as effort, comfort, and agency. These responses evolve as users adjust their movement strategies through repeated interaction with the device and as their capabilities change. We use human-in-the-loop optimization to personalize device behavior over time and study what determines whether assistance is adopted rather than abandoned.</p>
+          <p>Assistive devices alter the mechanics of movement, shaping both physical performance and people’s perceptions of effort, comfort, and agency. These responses evolve as users adjust their movement strategies through repeated interaction with the device and as their capabilities change. We use human-in-the-loop optimization to personalize device behavior over time and study what determines whether assistance is adopted rather than abandoned.</p>
           <p class="approaches"><strong>Keywords</strong> exoskeleton hardware and control · human-in-the-loop optimization · mixed-methods studies</p>
         </div>
         <figure class="thrust-figure">
           <div class="photo"><img src="/media/thrusts_hilo.jpg" alt="Person walking outdoors in a hip exoskeleton, with arrows tracing a human-in-the-loop optimization cycle: assistance settings, measured responses, an optimization landscape, and updated torque profiles."></div>
-          <figcaption>Community hip exoskeleton testing (2026). Schematic optimization from multimodal signals.</figcaption>
         </figure>
       </div>
 
       <div class="thrust">
-        <div class="thrust-index">03</div>
+        <div class="thrust-index">3</div>
         <div class="thrust-body">
           <h3>Augmented Feedback for Motor Learning</h3>
           <p>Motor skill learning depends on interpreting cues from the body and environment, which can be supplemented by sensorimotor feedback such as haptics, visuals, or verbal instruction. We design real-time feedback to support motor learning, asking which signals meaningfully aid learning under which conditions, and whether skills learned under augmented feedback transfer to unsupervised, real-world performance.</p>
@@ -284,10 +308,18 @@
         </div>
         <figure class="thrust-figure">
           <div class="photo"><img src="/media/thrusts_coach.jpg" alt="Person walking on a treadmill with ankle exoskeletons while a monitor provides real-time visual biofeedback about their movement."></div>
-          <figcaption>Ankle exoskeleton training with visual biofeedback (2024). Schematic adaptation curves.</figcaption>
         </figure>
       </div>
+
+
     </div>
+
+      <p class="panel-note">
+        Photographs from lab and community testing. Stylized overlays: 
+        (1) OpenSim musculoskeletal model, joint phase portraits, and ternary map of movement priorities;
+        (2) multimodal inputs to a torque optimization landscape;
+        (3) motor adaptation curves under visual biofeedback.
+      </p>
   </div>
 </section>
 
@@ -300,8 +332,8 @@
       </div>
 
       <div class="framework-copy">
-        <p>Supporting mobility with technology requires more than building a device. It requires understanding what matters to people, translating those priorities into meaningful goals, connecting them to how bodies and environments work, and evaluating whether the resulting systems help in everyday life.</p>
-        <p>Our Human-Centered Engineering Framework maps these interconnected activities, holding human experience as central throughout the research process. Although shown as stages, the process is iterative, with insights from each stage shaping the others.</p>
+        <p>Supporting mobility with technology requires more than building a device. We need ways to understand people’s mobility priorities in the context of their bodies, environments, and everyday lives; represent those priorities in our models and design objectives; and evaluate to what extent technology actually supports them.</p>
+        <p>Our Human-Centered Engineering Framework provides a structure for connecting these considerations across the research process. Although shown as stages, the process is iterative, with insights from each stage shaping the others.</p>
       </div>
     </div>
 
@@ -312,7 +344,7 @@
         <div><h5>Integrate</h5><p>Connecting models of biomechanical, neural, and psychosocial processes to understand how they jointly shape human movement and behavior.</p></div>
         <div><h5>Design</h5><p>Creating physical systems and interfaces whose form and function are informed by integrated models of movement and behavior.</p></div>
         <div><h5>Operationalize</h5><p>Developing personalized control strategies that adapt device behavior to each person as they move.</p></div>
-        <div><h5>Validate</h5><p>Evaluating effectiveness beyond the laboratory, in the context of people's everyday lives.</p></div>
+        <div><h5>Validate</h5><p>Evaluating effectiveness beyond the laboratory, in the context of people’s everyday lives.</p></div>
       </figcaption>
     </figure>
 
@@ -322,6 +354,18 @@
     </div>
   </div>
 </section>
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-toprow">
+      <p class="footer-name">Human-Centered Engineering for Mobility Lab</p>
+      <p class="footer-cr">&copy; 2026 Ava Lakmazaheri</p>
+    </div>
+    <p class="footer-meta">Worcester Polytechnic Institute<span class="footer-sep">&middot;</span>Worcester, MA</p>
+    <p class="footer-meta"><a href="mailto:alakmazaheri@wpi.edu">alakmazaheri@wpi.edu</a></p>
+  </div>
+</footer>
 
 </body>
 </html>

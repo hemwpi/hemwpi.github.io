@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Working Together — HEM Lab</title>
+<meta name="description" content="Prospective students and collaborators: how to join or work with the Human-Centered Engineering for Mobility Lab at WPI.">
 <style>
   :root{
     --header:#F2F2F3;
@@ -13,6 +14,10 @@
     --line:#DFDFE1;
     --surface:#F7F7F8;
     --paper:#ffffff;
+    --footer:#2F534C;
+    --footer-name:#ffffff;
+    --footer-text:#BBCEC9;
+    --footer-dim:#A8BFB9;
     --crimson:#AC2B37;
     --teal:#47786F;
     --teal-deep:#38625A;
@@ -82,6 +87,20 @@
   }
   a.button:hover{background:var(--teal-wash);border-color:rgba(71,120,111,.48);}
   a.button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
+
+  /* FOOTER */
+  /* FOOTER */
+  .site-footer{background:var(--footer);color:var(--footer-text);font-size:13px;padding:24px 0 22px;}
+  .site-footer p{margin:0 0 3px;line-height:1.65;}
+  .site-footer a{color:var(--footer-name);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.32);padding-bottom:1px;}
+  .site-footer a:hover{border-bottom-color:var(--footer-name);}
+  .footer-toprow{display:flex;justify-content:space-between;align-items:baseline;gap:28px;margin:0 0 3px;}
+  .footer-toprow p{margin:0;}
+  .footer-name{color:var(--footer-name);font-weight:600;}
+  .footer-cr{color:var(--footer-dim);font-size:12px;white-space:nowrap;}
+  .footer-meta{font-size:12.5px;}
+  .footer-sep{opacity:.5;padding:0 7px;}
+  @media (max-width:760px){.site-footer{padding:22px 0 20px;}.footer-toprow{flex-direction:column;align-items:flex-start;gap:6px;}}
 </style>
 </head>
 <body>
@@ -103,30 +122,28 @@
   <div class="wrap">
     <h2 class="section-title">Prospective Students</h2>
     <p>
-      I welcome inquiries from prospective students interested in research in biomechanics,
-      motor learning, and the design and control of assistive robotic devices.
-      I am specifically recruiting <strong>PhD students to begin in Fall 2027</strong> and <strong>Master's students year-round</strong>.
+      I am recruiting <strong>PhD students to begin in Fall 2027</strong> and welcome inquiries from <strong>Master’s students year-round</strong>.
+      Projects in the lab span biomechanics, motor learning, and the design and control of assistive robotic devices.
+      Students joining now will contribute to a growing research program and help shape new directions as the lab develops.
     </p>
 
     <p>
-      Students in the lab will contribute to a growing research program while developing as independent researchers
-      and preparing for their future careers. Mentorship will include developing research questions, building technical, 
-      writing, and presentation skills, and learning how to carry a project forward with increasing independence.
+      Graduate students receive mentorship tailored to their goals, experience, and stage of training, while taking increasing ownership of their research over time.
+      This includes developing and refining research questions, identifying appropriate approaches, interpreting results, and communicating their work, alongside building the technical skills and scientific judgment their research requires.
     </p>
 
     <p>Relevant backgrounds may include biomedical, mechanical, or robotics engineering;
       rehabilitation science; kinesiology; and computational neuroscience.
       Prior experience with hardware and control systems is especially relevant to device-focused work,
       while simulation and machine learning are assets for modeling-focused projects.
-      Students should expect to develop skills in quantitative analysis, experimental research with human participants,
+      Research in the lab frequently involves quantitative analysis, experiments with human participants,
       and collaboration across disciplines. I look for students who are prepared to acquire the skills and methods their
       research requires, including those beyond their prior experience.
     </p>
 
-    <p>I would also be glad to hear from undergraduate students interested in a sustained research experience or a capstone project.
-      If any of these describe you, please send a note describing your background and interests.</p>
+    <p>If you’re interested in joining the lab, please send a note describing your background and interests.</p>
 
-    <a class="button" href="mailto:alakmazaheri@wpi.edu?subject=%5BHEM-STUDENT%5D">Email about joining the lab</a>
+    <a class="button" href="mailto:alakmazaheri@wpi.edu?subject=%5BHEM-STUDENT%5D%20Prospective%20student%20inquiry">Email about joining the lab</a>
 
   </div>
 </section>
@@ -160,7 +177,7 @@
   </p>
 
   <p>
-    <strong>Computational & engineering expertise:</strong>
+    <strong>Computational &amp; engineering expertise:</strong>
     Researchers in biomechanics, robotics, control systems, simulation,
     machine learning, and related areas interested in understanding
     human movement or developing adaptive assistive technologies.
@@ -171,10 +188,20 @@
     from you.
   </p>
 
-  <a class="button" href="mailto:alakmazaheri@wpi.edu?subject=%5BHEM-COLLAB%5D">Email about collaborating</a>
+  <a class="button" href="mailto:alakmazaheri@wpi.edu?subject=%5BHEM-COLLAB%5D%20Collaboration%20inquiry">Email about collaborating</a>
   </div>
 </section>
 
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-toprow">
+      <p class="footer-name">Human-Centered Engineering for Mobility Lab</p>
+      <p class="footer-cr">&copy; 2026 Ava Lakmazaheri</p>
+    </div>
+    <p class="footer-meta">Worcester Polytechnic Institute<span class="footer-sep">&middot;</span>Worcester, MA</p>
+    <p class="footer-meta"><a href="mailto:alakmazaheri@wpi.edu">alakmazaheri@wpi.edu</a></p>
+  </div>
+</footer>
 
 </body>
 </html>

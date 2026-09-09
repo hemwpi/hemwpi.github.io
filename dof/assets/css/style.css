@@ -1435,3 +1435,18 @@ ol > li:before {
     margin-left: auto;
     margin-right: 0;
 }
+
+/* ---------- DOF footer ---------- */
+.dof-footer {
+    margin: 4rem 0 2.5rem;
+    padding: 1.5rem 1rem 0;
+    border-top: 1px solid #e2e2e2;
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #707070;
+}
+.dof-footer p { margin: 0 0 0.35rem; }
+.dof-footer a:link,
+.dof-footer a:visited { color: #707070; text-decoration: none; }
+.dof-footer a:hover { color: #b78ee3; text-decoration: underline; }
