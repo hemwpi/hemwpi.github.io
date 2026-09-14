@@ -68,7 +68,7 @@
 
   /* JUMP BAR: black label, section links; add an <a> per new section */
   .lede{padding:22px 0;border-bottom:1px solid var(--line);}
-  .jump{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:baseline;}
+  .jump{display:flex;flex-wrap:wrap;gap:12px 34px;align-items:baseline;}
   .jump-label{
     font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
     color:var(--heading);white-space:nowrap;
@@ -87,6 +87,16 @@
     background:var(--surface);border-top:1px solid var(--line);
   }
   .section-header{margin-bottom:28px;}
+  /* follows an un-banded section: separated by space, not a rule */
+  .pubs.quiet{padding-top:16px;}
+  /* text-only entries: no figure column */
+  /* text-only entries: year gutter instead of a figure, matching .talk-year */
+  .entries.plain .entry{grid-template-columns:66px minmax(0,1fr);gap:24px;padding:18px 0;}
+  .entries.plain .entry-title{max-width:none;}
+  .entry-year{
+    font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--teal);
+    font-variant-numeric:tabular-nums;padding-top:5px;
+  }
 
   /* ENTRIES */
   .entries{list-style:none;margin:0;padding:0;}
@@ -198,6 +208,8 @@
     .pubs{padding:32px 0 48px;}
     .pubs.band{padding:48px 0 56px;}
     .entry{grid-template-columns:minmax(0,1fr);gap:0;padding:26px 0;}
+    .entries.plain .entry{grid-template-columns:minmax(0,1fr);gap:4px;padding:20px 0;}
+    .entry-year{padding-top:0;}
     .entry:first-child{padding-top:4px;}
     .thumb{max-width:260px;margin:14px 0 0;order:2;}
     /* placeholder tiles are hidden on narrow screens so the list stays tight */
@@ -221,6 +233,9 @@
   .footer-meta{font-size:12.5px;}
   .footer-sep{opacity:.5;padding:0 7px;}
   @media (max-width:760px){.site-footer{padding:22px 0 20px;}.footer-toprow{flex-direction:column;align-items:flex-start;gap:6px;}}
+  .entry{scroll-margin-top:28px;}
+  .entry:target{background:var(--teal-soft,#EDF3F1);outline:1px solid var(--line,#DFDFE1);
+    border-radius:6px;padding:10px 12px;margin-left:-12px;margin-right:-12px;}
 </style>
 </head>
 <body>
@@ -243,7 +258,8 @@
     <div class="jump">
       <span class="jump-label">Jump to:</span>
       <a href="#articles">Peer-Reviewed Articles</a>
-      <a href="#presentations">Selected Presentations</a>
+      <a href="#submitted">Submitted Manuscripts</a>
+      <a href="#presentations">Presentations</a>
     </div>
   </div>
 </section>
@@ -257,7 +273,7 @@
 
     <ol class="entries">
 
-      <li class="entry">
+      <li class="entry" id="biofeedback-adaptation">
         <div class="thumb"><img src="/publications/Lakmazaheri_2025_TNSRE.gif" alt="Young adult man walking on a treadmill with ankle exoskeletons on both legs while a screen shows real-time gait biofeedback."></div>
         <div>
           <h3 class="entry-title">Biofeedback speeds adaptation to exoskeleton gait assistance</h3>
@@ -284,7 +300,7 @@
         </div>
       </li>
 
-      <li class="entry">
+      <li class="entry" id="hilo-older-adults">
         <div class="thumb"><img src="/publications/Lakmazaheri_2024_JNER.gif" alt="Older adult woman walking on a treadmill wearing ankle exoskeletons on both legs."></div>
         <div>
           <h3 class="entry-title">Optimizing exoskeleton assistance to improve walking speed and energy economy for older adults</h3>
@@ -343,11 +359,41 @@
   </div>
 </section>
 
+<!-- ============================ SUBMITTED ============================ -->
+<section class="pubs quiet" id="submitted">
+  <div class="wrap">
+    <div class="section-header">
+      <h2 class="section-title">Submitted Manuscripts</h2>
+    </div>
+
+    <ol class="entries plain">
+
+      <li class="entry" id="decoding-priorities">
+        <div class="entry-year">2026</div>
+        <div>
+          <h3 class="entry-title">Decoding movement priorities during human walking with multiple objectives</h3>
+          <p class="authors"><strong>A. Lakmazaheri</strong>*, J. N. Feldman*, P. Slade</p>
+          <p class="eq">* equal contribution</p>
+        </div>
+      </li>
+
+      <li class="entry">
+        <div class="entry-year">2026</div>
+        <div>
+          <h3 class="entry-title">Training strategies for human-robot interaction: How exploration, exploitation, and progressive variation affect sensorimotor learning</h3>
+          <p class="authors">R. Liu, <strong>A. Lakmazaheri</strong>, E. Richard, L. Marchand, E. Glassman, P. Slade</p>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
 <!-- ========================== PRESENTATIONS ========================== -->
 <section class="pubs band" id="presentations">
   <div class="wrap">
     <div class="section-header">
-      <h2 class="section-title">Selected Presentations</h2>
+      <h2 class="section-title">Presentations</h2>
     </div>
 
     <ol class="talks">
