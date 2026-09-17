@@ -5,33 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Human-Centered Engineering for Mobility Lab — WPI</title>
 <meta name="description" content="The Human-Centered Engineering for Mobility Lab at WPI studies how people move and adapt, and designs assistive technologies that work with them.">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
   :root{
-    --header:#F2F2F3;
-    --heading:#16181A;
-    --heading-deep:#0C0E10;
-    --ink:#2E3134;
-    --muted:#65696D;
-    --line:#DFDFE1;
-    --surface:#F7F7F8;
-    --paper:#ffffff;
-    --footer:#2F534C;
-    --footer-name:#ffffff;
-    --footer-text:#BBCEC9;
-    --footer-dim:#A8BFB9;
-    --crimson:#AC2B37;
-    --teal:#47786F;
-    --teal-soft:#EDF3F1;
-    --wrap:1120px;
-    --gutter:40px;
+    /* page-specific tokens; the shared palette lives in /assets/site.css */
     --thumb:272px;
   }
 
-  *{box-sizing:border-box;}
-  body{margin:0;font-family:'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--paper);}
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter);}
-  @media (min-width:1700px){:root{--wrap:1240px;}}
-  strong{color:var(--heading);font-weight:600;}
 
   /* sections */
   .eyebrow{
@@ -52,22 +32,9 @@
     font-weight:600;
   }
 
-  /* hero */
-  .hero{background:var(--header);padding:28px 0 48px;position:relative;}
-  .hero::after{
-    content:'';position:absolute;left:0;right:0;bottom:0;height:5px;
-    background:linear-gradient(to right,
-      var(--crimson) 0,
-      var(--crimson) max(var(--gutter), calc((100% - var(--wrap))/2 + var(--gutter))),
-      var(--teal) 0);
-  }
-  .topnav{display:flex;justify-content:flex-end;gap:24px;margin-bottom:40px;}
-  .topnav a{color:var(--muted);font-size:14px;text-decoration:none;letter-spacing:.02em;padding-bottom:3px;border-bottom:2px solid transparent;}
-  .topnav a:hover{color:var(--heading);}
-  .topnav a.here{color:var(--crimson);border-bottom-color:var(--crimson);}
-  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson);font-weight:700;margin-bottom:30px;line-height:1.9;}
-  .kicker .sep{margin:0 .75em;opacity:.55;}
-  .hero h1{font-size:42px;line-height:1.15;margin:0;color:var(--heading);font-weight:600;letter-spacing:-.015em;}
+  /* hero, top nav, kicker and footer: /assets/site.css */
+  /* this page's kicker runs to two lines, so it gets more air than the default */
+  .kicker{line-height:1.9;margin-bottom:30px;}
 
   /* mission */
   .mission{padding:40px 0 58px;background:var(--paper);}
@@ -197,10 +164,7 @@
     .framework-figure{margin-top:34px;}
   }
   @media (max-width:760px){
-    :root{--gutter:24px;}
-    .hero{padding:22px 0 40px;}
-    .hero h1{font-size:28px;}
-    .topnav{justify-content:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:28px;}
+    .hero h1{font-size:28px;} /* the lab name is long; smaller than the shared 32px */
     .mission{padding:44px 0 46px;}
     .mission .tagline{font-size:22px;line-height:1.5;}
     .thrusts{padding-bottom:64px;}
@@ -216,18 +180,6 @@
     .stage h5{margin-bottom:2px;}
   }
 
-  /* footer */
-  .site-footer{background:var(--footer);color:var(--footer-text);font-size:14px;padding:24px 0 22px;}
-  .site-footer p{margin:0 0 3px;line-height:1.7;}
-  .site-footer a{color:var(--footer-name);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.32);padding-bottom:1px;}
-  .site-footer a:hover{border-bottom-color:var(--footer-name);}
-  .footer-toprow{display:flex;justify-content:space-between;align-items:baseline;gap:28px;margin:0 0 3px;}
-  .footer-toprow p{margin:0;}
-  .footer-name{color:var(--footer-name);font-weight:600;}
-  .footer-cr{color:var(--footer-dim);font-size:12px;white-space:nowrap;}
-  .footer-meta{font-size:12px;}
-  .footer-sep{opacity:.5;padding:0 7px;}
-  @media (max-width:760px){.site-footer{padding:22px 0 20px;}.footer-toprow{flex-direction:column;align-items:flex-start;gap:6px;}}
 </style>
 </head>
 <body>

@@ -5,57 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Working Together — HEM Lab</title>
 <meta name="description" content="Prospective students and collaborators: how to join or work with the Human-Centered Engineering for Mobility Lab at WPI.">
+<link rel="stylesheet" href="/assets/site.css">
 <style>
   :root{
-    --header:#F2F2F3;
-    --heading:#16181A;
-    --heading-deep:#0C0E10;
-    --ink:#2E3134;
-    --muted:#5E6165;
-    --line:#DFDFE1;
-    --surface:#F7F7F8;
-    --paper:#ffffff;
-    --footer:#2F534C;
-    --footer-name:#ffffff;
-    --footer-text:#BBCEC9;
-    --footer-dim:#A8BFB9;
-    --crimson:#AC2B37;
-    --teal:#47786F;
+    /* page-specific tokens; the shared palette lives in /assets/site.css */
     --teal-deep:#38625A;
-    --teal-soft:#EDF3F1;
-    --wrap:1080px;
-    --gutter:40px;
     --teal-wash:#E1EBE8;
   }
-  *{box-sizing:border-box;}
-  body{margin:0;font-family:'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--paper);}
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter);}
-  @media (min-width:1700px){:root{--wrap:1240px;}}
-  strong{color:var(--heading);font-weight:600;}
   a{color:var(--teal);}
 
-  /* HERO: institutional identity */
-  .hero{background:var(--header);padding:26px 0 54px;position:relative;}
-  .hero::after{
-    content:'';position:absolute;left:0;right:0;bottom:0;height:5px;
-    /* the crimson/teal break lands on the content edge at every width */
-    background:linear-gradient(to right,
-      var(--crimson) 0,
-      var(--crimson) max(var(--gutter), calc((100% - var(--wrap))/2 + var(--gutter))),
-      var(--teal) 0);
-  }
-  .topnav{display:flex;justify-content:flex-end;gap:24px;margin-bottom:46px;}
-  .topnav a{color:var(--muted);font-size:13px;text-decoration:none;letter-spacing:.02em;padding-bottom:3px;border-bottom:2px solid transparent;}
-  .topnav a:hover{color:var(--heading);}
-  .topnav a.here{color:var(--crimson);border-bottom-color:var(--crimson);}
-  .hero h1{font-size:42px;line-height:1.15;margin:0;color:var(--heading);font-weight:650;letter-spacing:-.02em;}
-  @media (max-width:760px){
-    .hero{padding:22px 0 40px;}
-    .hero h1{font-size:32px;}
-    .topnav{justify-content:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:36px;}
-  }
-
-  .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson);font-weight:700;margin-bottom:16px;}
+  /* hero, top nav, kicker and footer: /assets/site.css */
 
   section{padding:44px 0;border-bottom:1px solid var(--line);}
   section:last-of-type{border-bottom:none;}
@@ -89,19 +48,6 @@
   a.button:hover{background:var(--teal-wash);border-color:rgba(71,120,111,.48);}
   a.button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
 
-  /* FOOTER */
-  /* FOOTER */
-  .site-footer{background:var(--footer);color:var(--footer-text);font-size:13px;padding:24px 0 22px;}
-  .site-footer p{margin:0 0 3px;line-height:1.65;}
-  .site-footer a{color:var(--footer-name);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.32);padding-bottom:1px;}
-  .site-footer a:hover{border-bottom-color:var(--footer-name);}
-  .footer-toprow{display:flex;justify-content:space-between;align-items:baseline;gap:28px;margin:0 0 3px;}
-  .footer-toprow p{margin:0;}
-  .footer-name{color:var(--footer-name);font-weight:600;}
-  .footer-cr{color:var(--footer-dim);font-size:12px;white-space:nowrap;}
-  .footer-meta{font-size:12.5px;}
-  .footer-sep{opacity:.5;padding:0 7px;}
-  @media (max-width:760px){.site-footer{padding:22px 0 20px;}.footer-toprow{flex-direction:column;align-items:flex-start;gap:6px;}}
 </style>
 </head>
 <body>
