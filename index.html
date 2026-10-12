@@ -9,7 +9,7 @@
 <style>
   :root{
     /* page-specific tokens; the shared palette lives in /assets/site.css */
-    --thumb:272px;
+    --thumb:236px;
   }
 
 
@@ -37,7 +37,7 @@
   .kicker{line-height:1.9;margin-bottom:30px;}
 
   /* mission */
-  .mission{padding:40px 0 58px;background:var(--paper);}
+  .mission{padding:36px 0 44px;background:var(--paper);}
   .mission .tagline{
     margin:0;
     font-size:26px;line-height:1.7;font-weight:400;
@@ -50,7 +50,7 @@
   }
 
   /* research */
-  .thrusts{padding:0 0 72px;}
+  .thrusts{padding:0 0 60px;}
   .research-header{margin-bottom:18px;}
   .thrusts .panel{
     padding:0 44px;
@@ -60,7 +60,7 @@
   }
   .thrust{
     display:grid;grid-template-columns:32px minmax(0,1fr) var(--thumb);
-    gap:40px 38px;padding:46px 0 52px;border-top:1px solid var(--line);align-items:start;
+    gap:40px 34px;padding:36px 0 40px;border-top:1px solid var(--line);align-items:start;
   }
   .thrust:first-child{border-top:none;}
   .thrust-index{
@@ -83,7 +83,7 @@
   }
   .thrust .photo img{width:100%;height:100%;object-fit:cover;display:block;object-position:center;}
   .thrust-figure{margin:0;}
-  .thrust:last-of-type{padding-bottom:40px;}
+  .thrust:last-of-type{padding-bottom:36px;}
   .panel-note{
     margin:14px 0 8px; text-align:right;
     font-size:12px;line-height:1.6;color:var(--muted);
@@ -94,59 +94,29 @@
   .framework-header{margin-bottom:22px;}
   .framework-copy p{font-size:16px;line-height:1.7;color:var(--ink);margin:0 0 16px;}
   .framework-copy p:last-child{margin-bottom:0;}
-  .framework-figure{margin:46px 0 0;}
+  .framework-figure{margin:40px 0 0;}
+  /* credit sits at the foot of the Listen column, level with the last line of the longest description */
+  .illus-credit{margin:auto 0 0;padding-top:12px;font-size:11px;line-height:20.15px;color:var(--muted);opacity:.85;font-style:italic;}
 
-  .stage-row{
-    margin:0;
-    display:grid;grid-template-columns:30px minmax(0,1fr);
+  /* stage filmstrip: six equal columns */
+  .flow-scroll{margin:0 -18px;}
+  .flow{position:relative;}
+
+  .stages{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin:0;padding:0;list-style:none;}
+  .stage{padding:0 18px;display:flex;flex-direction:column;}
+  .stage-img{
+    aspect-ratio:400/756;border-radius:6px;overflow:hidden;
+    border:1px solid var(--line);background:var(--teal-soft);
   }
-  .stage-row > .stage{
-    position:relative;grid-column:2;
-    display:grid;grid-template-columns:132px minmax(0,1fr);
-    gap:0 30px;padding:0 0 24px 22px;
-  }
-  .stage:nth-of-type(1){grid-row:1;} .stage:nth-of-type(2){grid-row:2;}
-  .stage:nth-of-type(3){grid-row:3;} .stage:nth-of-type(4){grid-row:4;}
-  .stage:nth-of-type(5){grid-row:5;} .stage:nth-of-type(6){grid-row:6;padding-bottom:0;}
-  /* stage marker */
-  .stage::after{
-    content:'';position:absolute;left:0;top:6px;
-    width:7px;height:7px;border-radius:50%;background:var(--teal);
-  }
-  /* downward connector, omitted on the final stage */
-  .stage::before{
-    content:'';position:absolute;left:-1px;top:17px;bottom:3px;width:9px;
-    background:
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='9' height='6'><polyline points='1,1 4.5,4.5 8,1' fill='none' stroke='%2347786F' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat 50% 100%,
-      linear-gradient(var(--line),var(--line)) no-repeat 50% 0/1px calc(100% - 5px);
-  }
-  .stage:nth-of-type(6)::before{display:none;}
+  .stage-img img{width:100%;height:100%;object-fit:cover;display:block;}
   .stage h5{
-    margin:0;font-size:14px;color:var(--heading);
-    text-transform:uppercase;letter-spacing:.09em;line-height:1.6;
+    margin:18px 0 6px;font-size:12.5px;color:var(--heading);
+    text-transform:uppercase;letter-spacing:.08em;line-height:1.4;
   }
-  .stage p{margin:0;font-size:14px;line-height:1.7;color:var(--muted);}
-  /* feedback paths, drawn clear of the markers */
-  .arc,.feeder{grid-column:1;pointer-events:none;}
-  .arc{
-    position:relative;margin:9.5px 6px -9.5px 0;
-    border:1px solid var(--line);border-right:none;border-radius:10px 0 0 10px;
-  }
-  .arc::after{
-    content:'';position:absolute;right:-3px;top:-3.5px;width:6px;height:6px;
-    border-top:1px solid var(--teal);border-right:1px solid var(--teal);
-    transform:rotate(45deg);
-  }
-  .arc-return{grid-row:1 / 6;margin-left:0;}
-  .arc-op-design{grid-row:4 / 5;margin-left:13px;}
-  /* Integrate joins the same return path rather than drawing its own arc */
-  .feeder{
-    grid-row:3;align-self:start;height:1px;margin:9.5px 6px 0 0;
-    background:var(--line);
-  }
+  .stage p:not(.illus-credit){margin:0;font-size:13.5px;line-height:1.6;color:var(--muted);text-wrap:pretty;}
   .stage-ref{color:var(--teal);font-weight:600;letter-spacing:.03em;}
   .framework-note{
-    margin:36px 0 0;
+    margin:48px 0 0;
     font-size:16px;line-height:1.7;color:var(--ink);
   }
   .framework-note .note-copy{margin:0;}
@@ -155,6 +125,15 @@
   @media (max-width:980px){
     .thrust{grid-template-columns:32px minmax(0,1fr) 200px;gap:40px 48px;}
     .thrust-body{min-height:200px;}
+  }
+  /* below ~1060px the strip keeps its desktop proportions and scrolls sideways */
+  @media (max-width:1060px){
+    .flow-scroll{
+      overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
+      margin:0 calc(-1 * var(--gutter));padding:0 calc(var(--gutter) - 18px) 10px;
+    }
+    .flow{width:1060px;}
+    .stage{scroll-snap-align:start;scroll-margin-left:calc(var(--gutter) - 18px);}
   }
   @media (max-width:860px){
     .mission .tagline{font-size:25px;}
@@ -173,11 +152,6 @@
     .thrust-index{font-size:30px;}
     .thrust-figure{grid-column:1;max-width:300px;margin-top:13px;}
     .framework{padding:52px 0 58px;}
-    .stage-row{grid-template-columns:22px minmax(0,1fr);}
-    .arc{border-radius:8px 0 0 8px;}
-    .arc-op-design{margin-left:9px;}
-    .stage-row > .stage{grid-template-columns:minmax(0,1fr);gap:0;padding-left:18px;}
-    .stage h5{margin-bottom:2px;}
   }
 
 </style>
@@ -266,17 +240,37 @@
     </div>
 
     <figure class="framework-figure">
-      <figcaption class="stage-row">
-        <div class="stage"><h5>Listen</h5><p>Learning from people's own accounts of their mobility, in the context of their values and goals.</p></div>
-        <div class="stage"><h5>Encode</h5><p>Representing insights as qualitative and quantitative data that can be systematically analyzed and used to develop testable models.</p></div>
-        <div class="stage"><h5>Integrate</h5><p>Connecting models of biomechanical, neural, and psychosocial processes to understand how they jointly shape human behavior.</p></div>
-        <div class="stage"><h5>Design</h5><p>Creating physical systems and interfaces whose form and function are informed by integrated models of behavior.</p></div>
-        <div class="stage"><h5>Operationalize</h5><p>Developing personalized control strategies that adapt device behavior to each person as they move.</p></div>
-        <div class="stage"><h5>Validate</h5><p>Evaluating effectiveness beyond the laboratory, in the context of people’s everyday lives.</p></div>
-        <div class="arc arc-return" aria-hidden="true"></div>
-        <div class="feeder" aria-hidden="true"></div>
-        <div class="arc arc-op-design" aria-hidden="true"></div>
-      </figcaption>
+      <div class="flow-scroll">
+        <div class="flow">
+          <ol class="stages">
+          <li class="stage">
+            <div class="stage-img"><img src="/media/stage_listen.jpg" alt="A researcher takes notes while listening to an older woman describe her experiences in a living room." width="400" height="756" loading="lazy"></div>
+            <h5>Listen</h5><p>Learning from people's own accounts of their mobility, in the context of their values and goals.</p>
+            <p class="illus-credit">Illustrations by David K.</p>
+          </li>
+          <li class="stage">
+            <div class="stage-img"><img src="/media/stage_encode.jpg" alt="Two researchers work through notes, diagrams, and coded data spread across a table." width="400" height="756" loading="lazy"></div>
+            <h5>Encode</h5><p>Representing insights as qualitative and quantitative data that can be systematically analyzed and used to develop testable models.</p>
+          </li>
+          <li class="stage">
+            <div class="stage-img"><img src="/media/stage_integrate.jpg" alt="An older woman walks on a treadmill in a lab wearing sensors and a metabolic mask, surrounded by plots of biomechanical and neural signals." width="400" height="756" loading="lazy"></div>
+            <h5>Integrate</h5><p>Connecting models of biomechanical, neural, and psychosocial processes to understand how they jointly shape human behavior.</p>
+          </li>
+          <li class="stage">
+            <div class="stage-img"><img src="/media/stage_design.jpg" alt="An engineer assembles an exoskeleton frame at a workbench scattered with circuit boards and tools." width="400" height="756" loading="lazy"></div>
+            <h5>Design</h5><p>Creating physical systems and interfaces whose form and function are informed by integrated models of behavior.</p>
+          </li>
+          <li class="stage">
+            <div class="stage-img"><img src="/media/stage_operationalize.jpg" alt="An older woman walks on a treadmill in a hip exoskeleton while its assistance is tuned." width="400" height="756" loading="lazy"></div>
+            <h5>Operationalize</h5><p>Developing personalized control strategies that adapt device behavior to each person as they move.</p>
+          </li>
+          <li class="stage">
+            <div class="stage-img"><img src="/media/stage_validate.jpg" alt="An older woman wearing a hip exoskeleton walks along an outdoor trail with a companion." width="400" height="756" loading="lazy"></div>
+            <h5>Validate</h5><p>Evaluating effectiveness beyond the laboratory, in the context of people’s everyday lives.</p>
+          </li>
+          </ol>
+        </div>
+      </div>
     </figure>
 
     <div class="framework-note">
